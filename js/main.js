@@ -254,7 +254,7 @@ $(function() {
   $("#form").submit(function() {
     $.ajax({
       type: "POST",
-      url: "mail.php",
+      url: "https://riozdr3aw3.execute-api.us-east-2.amazonaws.com/prod/emails",
       data: $(this).serialize()
     }).done(function() {
 
@@ -483,8 +483,9 @@ $(function() {
     $("#form").submit(function() {
       $.ajax({
         type: "POST",
-        url: "mail.php",
-        data: $(this).serialize()
+        dataType: 'json',
+        url: "https://riozdr3aw3.execute-api.us-east-2.amazonaws.com/prod/emails",
+        data: {"message": "good message"}
       }).done(function() {
 
         var tl = anime.timeline({
