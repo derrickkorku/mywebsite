@@ -252,7 +252,6 @@ $(function() {
   });
 
   $("#form").submit(function() {
-    alert("Email sent successfully");
     var tl = anime.timeline({
       easing: 'easeOutExpo',
     });
@@ -269,6 +268,7 @@ $(function() {
           height: '45px',
         })
 
+    return false;
     // $.ajax({
     //   type: "POST",
     //   url: "https://riozdr3aw3.execute-api.us-east-2.amazonaws.com/prod/emails",
