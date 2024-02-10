@@ -252,17 +252,12 @@ $(function() {
   });
 
   $("#form").submit(function() {
-    $.ajax({
-      type: "POST",
-      url: "https://riozdr3aw3.execute-api.us-east-2.amazonaws.com/prod/emails",
-      data: $(this).serialize()
-    }).done(function() {
+    alert("Email sent successfully");
+    var tl = anime.timeline({
+      easing: 'easeOutExpo',
+    });
 
-      var tl = anime.timeline({
-        easing: 'easeOutExpo',
-      });
-
-      tl
+    tl
         .add({
           targets: '.art-submit',
           opacity: 0,
@@ -273,8 +268,30 @@ $(function() {
           scale: 1,
           height: '45px',
         })
-    });
-    return false;
+
+    // $.ajax({
+    //   type: "POST",
+    //   url: "https://riozdr3aw3.execute-api.us-east-2.amazonaws.com/prod/emails",
+    //   data: $(this).serialize()
+    // }).done(function() {
+    //
+    //   var tl = anime.timeline({
+    //     easing: 'easeOutExpo',
+    //   });
+    //
+    //   tl
+    //     .add({
+    //       targets: '.art-submit',
+    //       opacity: 0,
+    //       scale: .5,
+    //     })
+    //     .add({
+    //       targets: '.art-success',
+    //       scale: 1,
+    //       height: '45px',
+    //     })
+    // });
+    // return false;
   });
 
   // portfolio filter
