@@ -252,11 +252,17 @@ $(function() {
   });
 
   $("#form").submit(function() {
-    var tl = anime.timeline({
-      easing: 'easeOutExpo',
-    });
+    $.ajax({
+      type: "POST",
+      url: "https://t9xdvjskuh.execute-api.us-east-2.amazonaws.com/prod/sendEmails",
+      data: $(this).serialize()
+    }).done(function() {
 
-    tl
+      var tl = anime.timeline({
+        easing: 'easeOutExpo',
+      });
+
+      tl
         .add({
           targets: '.art-submit',
           opacity: 0,
@@ -267,31 +273,8 @@ $(function() {
           scale: 1,
           height: '45px',
         })
-
+    });
     return false;
-    // $.ajax({
-    //   type: "POST",
-    //   url: "https://riozdr3aw3.execute-api.us-east-2.amazonaws.com/prod/emails",
-    //   data: $(this).serialize()
-    // }).done(function() {
-    //
-    //   var tl = anime.timeline({
-    //     easing: 'easeOutExpo',
-    //   });
-    //
-    //   tl
-    //     .add({
-    //       targets: '.art-submit',
-    //       opacity: 0,
-    //       scale: .5,
-    //     })
-    //     .add({
-    //       targets: '.art-success',
-    //       scale: 1,
-    //       height: '45px',
-    //     })
-    // });
-    // return false;
   });
 
   // portfolio filter
